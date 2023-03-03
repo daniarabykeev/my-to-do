@@ -1,7 +1,15 @@
 import "./App.css";
+import CustomForm from "./components/CustomForm";
 
 function App() {
-  return <div>My To Do App</div>;
+  return (
+    <div className="container">
+      <header>
+        <h1>My Task List</h1>
+      </header>
+      <CustomForm />
+    </div>
+  );
 }
 
 export default App;
