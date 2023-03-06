@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import styles from "./TaskItem.module.css";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
-function TaskItem({ task }) {
-  const [isChecked, setIsChecked] = useState(task.checked);
-
-  const handleCheckboxChange = (e) => {
-    setIsChecked(!isChecked);
-  };
-
+function TaskItem({ task, changeStatus }) {
   return (
     <div>
       <li className={styles.task}>
@@ -17,7 +11,7 @@ function TaskItem({ task }) {
             type="checkbox"
             className={styles.checkbox}
             checked={task.checked}
-            onChange={handleCheckboxChange}
+            onChange={() => changeStatus(task.id)}
             name={task.name}
             id={task.id}
           />

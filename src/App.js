@@ -8,13 +8,23 @@ function App() {
   const addTask = (task) => {
     setTasks((prevState) => [...prevState, task]);
   };
+  const changeStatus = (id) => {
+    setTasks((prev) =>
+      prev.map((item) => {
+        if (item.id == id) {
+          item.checked = !item.checked;
+        }
+        return item;
+      })
+    );
+  };
   return (
     <div className="container">
       <header>
         <h1>My Task List</h1>
       </header>
       <CustomForm addTask={addTask} />
-      {tasks && <TaskList tasks={tasks} />}
+      {tasks && <TaskList changeStatus={changeStatus} tasks={tasks} />}
     </div>
   );
 }
